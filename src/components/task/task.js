@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./task.css";
+import "./task.css"; 
 
 class Task extends Component {
   state = {

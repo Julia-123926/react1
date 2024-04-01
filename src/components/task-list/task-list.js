@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"; 
 import Task from "../task";
 
 import './task-list.css' 
 
 const TaskList = ({ tasks, onDeleted }) => {
-  const elements = tasks.map((item, index) => {
-    return <Task key={index} {...item} 
-    onDeleted={() => onDeleted(index)}/>;
+  const elements = tasks.map((item) => {
+    return <Task key={item.id} {...item} 
+    onDeleted={() => onDeleted(item.id)}/>;
   });
   return <ul className='todo-list'>{elements}</ul>;
 };

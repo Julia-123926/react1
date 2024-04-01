@@ -9,16 +9,20 @@ import "./app.css";
 class App extends Component {
   state = {
     todoData: [
-      { description: "Completed task", created: "17 seconds ago" },
-      { description: "Editing task", created: "5 minutes ago" },
-      { description: "Active task", created: "5 minutes ago" },
+      { description: "Completed task", created: "17 seconds ago", id: 1},
+      { description: "Editing task", created: "5 minutes ago", id: 2},
+      { description: "Active task", created: "5 minutes ago", id: 3},
     ],
   };
 
-  deleteItem = (index) => {
+  deleteItem = (id) => {
     this.setState(({ todoData }) => {
-      const newArray = todoData.filter((_, i) => i !== index);
-      return {todoData: newArray}
+      const idx = todoData.findIndex((el) => el.id === id);
+      const newArray = [...todoData.slice(0, idx), ...todoData.slice(idx + 1)];
+
+      return {
+        todoData: newArray,
+      };
     });
   };
 
@@ -37,26 +41,5 @@ class App extends Component {
     );
   }
 }
-
-// const App = () => {
-//   const tasks = [
-//     { description: "Completed task", created: "17 seconds ago" },
-//     { description: "Editing task", created: "5 minutes ago" },
-//     { description: "Active task", created: "5 minutes ago" },
-//   ];
-
-//   return (
-//     <section className="todoapp">
-//       <header className="header">
-//         <h1>todos</h1>
-//         <NewTaskForm />
-//       </header>
-//       <section className="main">
-//         <TaskList tasks={tasks} onDeleted={(id) => console.log(`del`, id)} />
-//         <Footer />
-//       </section>
-//     </section>
-//   );
-// };
 
 export default App;
