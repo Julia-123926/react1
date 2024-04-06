@@ -32,6 +32,11 @@ const App = () => {
   ]);
   const [taskFilter, setTaskFilter] = useState("all");
 
+  const clearCompleted = () => {
+    setTodoData((prevTodoData) => {
+      return prevTodoData.filter((item) => !item.completed);
+    });
+  };
   //
   //
   //
@@ -87,6 +92,7 @@ const App = () => {
           todoLeftCount={todoLeftCount}
           changeTaskFilter={changeTaskFilter}
           taskFilter={taskFilter}
+          clearCompleted={clearCompleted}
         />
       </section>
     </section>
