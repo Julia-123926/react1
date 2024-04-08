@@ -12,20 +12,19 @@ const App = () => {
   const [todoData, setTodoData] = useState([
     {
       description: "Completed task",
-      created: "created 5 minutes ago",
+      created: new Date(),
       completed: false,
       id: 1,
     },
     {
       description: "Editing task",
-      created: "created 5 minutes ago",
+      created: new Date(),
       completed: false,
-
       id: 2,
     },
     {
       description: "Active task",
-      created: "created 5 minutes ago",
+      created: new Date(),
       completed: false,
       id: 3,
     },
@@ -60,7 +59,7 @@ const App = () => {
   const addItem = (text) => {
     const newItem = {
       description: text,
-      created: "17 seconds ago",
+      created: new Date(),
       id: index++,
     };
     setTodoData((prevTodoData) => [...prevTodoData, newItem]);

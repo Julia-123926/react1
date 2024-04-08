@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "../task/Task";
+import PropTypes from "prop-types";
 
 import "./Task-list.css";
 
@@ -27,6 +28,19 @@ const TaskList = ({ tasks, onDeleted, taskFilter, changeCompleted }) => {
   };
 
   return <ul className="todo-list">{getProducts()}</ul>;
+};
+
+TaskList.defaultProps = {
+  tasks: [],
+  onDeleted: () => {},
+  changeCompleted: () => {},
+};
+
+TaskList.propTypes = {
+  tasks: PropTypes.array,
+  onDeleted: PropTypes.func,
+  taskFilter: PropTypes.string,
+  changeCompleted: PropTypes.func,
 };
 
 export default TaskList;

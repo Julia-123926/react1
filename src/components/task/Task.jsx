@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { formatDistance } from "date-fns";
+import PropTypes from "prop-types";
 
 import "./Task.css";
 
 const Task = ({
   description,
-  created,
   completed,
+  created,
   onDeleted,
   id,
   changeCompleted,
@@ -27,7 +29,9 @@ const Task = ({
           <span className={`description ${completed ? "completed" : ""}`}>
             {description}
           </span>
-          <span className="created">{created}</span>
+          <span className="created">
+            {formatDistance(new Date(created), new Date(), { addSuffix: true })}
+          </span>
         </label>
         <button className="icon icon-edit"></button>
         <button
@@ -37,6 +41,17 @@ const Task = ({
       </div>
     </li>
   );
+};
+
+Task.defaultProps = {
+  created: new Date(),
+  description: "a",
+  completed: false,
+};
+
+Task.propTypes = {
+  description: PropTypes.string,
+  completed: PropTypes.bool,
 };
 
 export default Task;
