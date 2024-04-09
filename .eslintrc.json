@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true
@@ -9,9 +10,12 @@
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/errors",
-    "plugin:import/warnings"
+    "plugin:import/warnings",
+    "airbnb",
+    "prettier"
   ],
   "parserOptions": {
+    "es6": true,
     "ecmaFeatures": {
       "jsx": true
     },
@@ -27,6 +31,18 @@
     "semi": 0,
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
+    "react/state-in-constructor": 0,
+    "no-restricted-syntax": 0,
+    "no-named-as-default": "off",
+    "no-param-reassign":"off",
+    "react/button-has-type": 0,
+    "react/static-property-placement": 0,
+    "react/self-closing-comp": "off",
+    "react/prefer-stateless-function": "off",
+    "jsx-a11y/control-has-associated-label": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "react/default-props-match-prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
     "import/no-unresolved": [2, { "caseSensitive": false }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "import/order": [
