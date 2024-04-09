@@ -1,44 +1,42 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import Footer from "../footer/Footer";
-import NewTaskForm from "../new-task-form/New-task-form";
-import TaskList from "../task-list/Task-list";
+import Footer from '../footer/Footer';
+import NewTaskForm from '../new-task-form/New-task-form';
+import TaskList from '../task-list/Task-list';
 
-import "./App.css";
+import './App.css';
 
 let index = 4;
 
 const App = () => {
   const [todoData, setTodoData] = useState([
     {
-      description: "Completed task",
+      description: 'Completed task',
       created: new Date(),
       completed: false,
       id: 1,
     },
     {
-      description: "Editing task",
+      description: 'Editing task',
       created: new Date(),
       completed: false,
       id: 2,
     },
     {
-      description: "Active task",
+      description: 'Active task',
       created: new Date(),
       completed: false,
       id: 3,
     },
   ]);
-  const [taskFilter, setTaskFilter] = useState("all");
+  const [taskFilter, setTaskFilter] = useState('all');
 
   const clearCompleted = () => {
     setTodoData((prevTodoData) => {
       return prevTodoData.filter((item) => !item.completed);
     });
   };
-  //
-  //
-  //
+
   const changeCompleted = (id) => {
     const newTodoData = [...todoData];
     const todo = newTodoData.find((elem) => elem.id === id);
@@ -66,9 +64,9 @@ const App = () => {
   };
 
   const onEnterClick = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       addItem(e.target.value);
-      e.target.value = "";
+      e.target.value = '';
     }
   };
 
@@ -81,12 +79,7 @@ const App = () => {
         <NewTaskForm onEnterClick={onEnterClick} />
       </header>
       <section className="main">
-        <TaskList
-          tasks={todoData}
-          onDeleted={deleteItem}
-          taskFilter={taskFilter}
-          changeCompleted={changeCompleted}
-        />
+        <TaskList tasks={todoData} onDeleted={deleteItem} taskFilter={taskFilter} changeCompleted={changeCompleted} />
         <Footer
           todoLeftCount={todoLeftCount}
           changeTaskFilter={changeTaskFilter}

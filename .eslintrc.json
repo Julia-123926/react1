@@ -20,14 +20,11 @@
   },
   "plugins": ["react", "prettier", "import"],
   "rules": {
-    "no-plusplus": "off",
-    "max-len": ["error", 50],
-    "no-tabs": "off",
-    "indent": ["error", 2],
-    "prettier/prettier": "error",
+    "indent": 0,
+    "prettier/prettier": "off",
     "linebreak-style": [0, "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
+    "quotes": 0,
+    "semi": 0,
     "react/react-in-jsx-scope": "off",
     "react/prop-types": 0,
     "import/no-unresolved": [2, { "caseSensitive": false }],
@@ -46,6 +43,9 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
         "moduleDirectory": ["node_modules", "src/"]
       }
+    },
+    "react": {
+      "version": "detect"
     }
   }
 }

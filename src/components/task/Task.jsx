@@ -1,17 +1,10 @@
-import React from "react";
-import { formatDistance } from "date-fns";
-import PropTypes from "prop-types";
+import React from 'react';
+import { formatDistance } from 'date-fns';
+import PropTypes from 'prop-types';
 
-import "./Task.css";
+import './Task.css';
 
-const Task = ({
-  description,
-  completed,
-  created,
-  onDeleted,
-  id,
-  changeCompleted,
-}) => {
+const Task = ({ description, completed, created, onDeleted, id, changeCompleted }) => {
   const onToggleClick = () => {
     changeCompleted(id);
   };
@@ -19,25 +12,13 @@ const Task = ({
   return (
     <li>
       <div className="view">
-        <input
-          className="toggle"
-          checked={completed}
-          onChange={onToggleClick}
-          type="checkbox"
-        />
+        <input className="toggle" checked={completed} onChange={onToggleClick} type="checkbox" />
         <label>
-          <span className={`description ${completed ? "completed" : ""}`}>
-            {description}
-          </span>
-          <span className="created">
-            {formatDistance(new Date(created), new Date(), { addSuffix: true })}
-          </span>
+          <span className={`description ${completed ? 'completed' : ''}`}>{description}</span>
+          <span className="created">{formatDistance(new Date(created), new Date(), { addSuffix: true })}</span>
         </label>
         <button className="icon icon-edit"></button>
-        <button
-          className="icon icon-destroy"
-          onClick={() => onDeleted(id)}
-        ></button>
+        <button className="icon icon-destroy" onClick={() => onDeleted(id)}></button>
       </div>
     </li>
   );
@@ -45,7 +26,7 @@ const Task = ({
 
 Task.defaultProps = {
   created: new Date(),
-  description: "a",
+  description: 'a',
   completed: false,
 };
 

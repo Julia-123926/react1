@@ -1,29 +1,25 @@
-import React from "react";
-import Task from "../task/Task";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import "./Task-list.css";
+import Task from '../task/Task';
+
+import './Task-list.css';
 
 const TaskList = ({ tasks, onDeleted, taskFilter, changeCompleted }) => {
   const getProducts = () => {
     let newTasks = [...tasks];
     switch (taskFilter) {
-      case "active":
+      case 'active':
         newTasks = tasks.filter((elem) => !elem.completed);
         break;
-      case "completed":
+      case 'completed':
         newTasks = tasks.filter((elem) => elem.completed);
         break;
       default:
         break;
     }
     return newTasks.map((item) => (
-      <Task
-        key={item.id}
-        {...item}
-        onDeleted={onDeleted}
-        changeCompleted={changeCompleted}
-      />
+      <Task key={item.id} {...item} onDeleted={onDeleted} changeCompleted={changeCompleted} />
     ));
   };
 
