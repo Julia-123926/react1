@@ -6,7 +6,7 @@ import TaskList from '../task-list/Task-list';
 
 import './App.css';
 
-let index = 4;
+const index = 4;
 
 const App = () => {
   const [todoData, setTodoData] = useState([
@@ -29,12 +29,11 @@ const App = () => {
       id: 3,
     },
   ]);
+
   const [taskFilter, setTaskFilter] = useState('all');
 
   const clearCompleted = () => {
-    setTodoData((prevTodoData) => {
-      return prevTodoData.filter((item) => !item.completed);
-    });
+    setTodoData((prevTodoData) => prevTodoData.filter((item) => !item.completed));
   };
 
   const changeCompleted = (id) => {
@@ -49,16 +48,14 @@ const App = () => {
   };
 
   const deleteItem = (id) => {
-    setTodoData((prevTodoData) => {
-      return prevTodoData.filter((item) => item.id !== id);
-    });
+    setTodoData((prevTodoData) => prevTodoData.filter((item) => item.id !== id));
   };
 
   const addItem = (text) => {
     const newItem = {
       description: text,
       created: new Date(),
-      id: index++,
+      id: index + 1,
     };
     setTodoData((prevTodoData) => [...prevTodoData, newItem]);
   };
@@ -80,13 +77,13 @@ const App = () => {
       </header>
       <section className="main">
         <TaskList tasks={todoData} onDeleted={deleteItem} taskFilter={taskFilter} changeCompleted={changeCompleted} />
-        <Footer
-          todoLeftCount={todoLeftCount}
-          changeTaskFilter={changeTaskFilter}
-          taskFilter={taskFilter}
-          clearCompleted={clearCompleted}
-        />
       </section>
+      <Footer
+        todoLeftCount={todoLeftCount}
+        changeTaskFilter={changeTaskFilter}
+        taskFilter={taskFilter}
+        clearCompleted={clearCompleted}
+      />
     </section>
   );
 };
