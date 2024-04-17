@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import TasksFilter from '../tasks-filter/Tasks-filter';
 
-import './Footer.css';
+import './footer.css';
 
 const Footer = ({ todoLeftCount, changeTaskFilter, taskFilter, clearCompleted }) => (
   <footer className="footer">

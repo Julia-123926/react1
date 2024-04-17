@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Tasks-filter.css';
+import './tasks-filter.css';
 
 const TasksFilter = ({ changeTaskFilter, taskFilter }) => (
   <ul className="filters">

@@ -2,7 +2,7 @@ import React from 'react';
 import { formatDistance } from 'date-fns';
 import PropTypes from 'prop-types';
 
-import './Task.css';
+import './task.css';
 
 const Task = ({ description, completed, created, onDeleted, id, changeCompleted }) => {
   const onToggleClick = () => {

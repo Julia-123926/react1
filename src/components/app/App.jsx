@@ -4,7 +4,7 @@ import Footer from '../footer/Footer';
 import NewTaskForm from '../new-task-form/New-task-form';
 import TaskList from '../task-list/Task-list';
 
-import './App.css';
+import './app.css';
 
 const index = 4;
 

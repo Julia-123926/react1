@@ -2,7 +2,7 @@ import React from 'react';
 
 import Task from '../task/Task';
 
-import './Task-list.css';
+import './task-list.css';
 
 const TaskList = ({ tasks, onDeleted, taskFilter, changeCompleted }) => {
   const getProducts = () => {
