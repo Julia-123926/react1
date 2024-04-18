@@ -6,8 +6,6 @@ import TaskList from '../task-list/Task-list';
 
 import './app.css';
 
-const index = 4;
-
 const App = () => {
   const [todoData, setTodoData] = useState([
     {
@@ -52,10 +50,11 @@ const App = () => {
   };
 
   const addItem = (text) => {
+    const maxIndex = Math.max(...todoData.map((elem) => elem.id));
     const newItem = {
       description: text,
       created: new Date(),
-      id: index + 1,
+      id: maxIndex + 1,
     };
     setTodoData((prevTodoData) => [...prevTodoData, newItem]);
   };
