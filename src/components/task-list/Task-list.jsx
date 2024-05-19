@@ -1,10 +1,21 @@
 import React from 'react';
 
-import Task from '../task/Task';
+import Task from './task/Task';
 
 import './task-list.css';
 
-const TaskList = ({ tasks, onDeleted, taskFilter, changeCompleted }) => {
+const TaskList = ({
+  tasks,
+  plusSecond,
+  onDeleted,
+  taskFilter,
+  changeCompleted,
+  changeActiveTask,
+  addSeconds,
+  editItem,
+  onEnterEditClick,
+  updateTodoDescription,
+}) => {
   const getProducts = () => {
     let newTasks = [...tasks];
     switch (taskFilter) {
@@ -18,7 +29,18 @@ const TaskList = ({ tasks, onDeleted, taskFilter, changeCompleted }) => {
         break;
     }
     return newTasks.map((item) => (
-      <Task key={item.id} {...item} onDeleted={onDeleted} changeCompleted={changeCompleted} />
+      <Task
+        key={item.id}
+        {...item}
+        onDeleted={onDeleted}
+        changeCompleted={changeCompleted}
+        changeActiveTask={changeActiveTask}
+        plusSecond={plusSecond}
+        addSeconds={addSeconds}
+        editItem={editItem}
+        onEnterEditClick={onEnterEditClick}
+        updateTodoDescription={updateTodoDescription}
+      />
     ));
   };
 
