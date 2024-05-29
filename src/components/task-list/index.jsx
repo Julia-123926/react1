@@ -1,18 +1,16 @@
 import React from 'react';
 
-import Task from './task/Task';
+import Task from './task';
 
 import './task-list.css';
 
 const TaskList = ({
   tasks,
-  plusSecond,
+  startTimer,
   onDeleted,
   taskFilter,
   changeCompleted,
-  changeActiveTask,
-  addSeconds,
-  editItem,
+  stopTimer,
   onEnterEditClick,
   updateTodoDescription,
 }) => {
@@ -34,10 +32,10 @@ const TaskList = ({
         {...item}
         onDeleted={onDeleted}
         changeCompleted={changeCompleted}
-        changeActiveTask={changeActiveTask}
-        plusSecond={plusSecond}
-        addSeconds={addSeconds}
-        editItem={editItem}
+        stopTimer={stopTimer}
+        startTimer={startTimer}
+        item={item}
+        // editItem={editItem}
         onEnterEditClick={onEnterEditClick}
         updateTodoDescription={updateTodoDescription}
       />

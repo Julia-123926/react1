@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { formatDistance } from 'date-fns';
 import PropTypes from 'prop-types';
 
@@ -11,62 +11,22 @@ const Task = ({
   onDeleted,
   id,
   changeCompleted,
-  isActive,
-  seconds,
-  changeActiveTask,
-  plusSecond,
-  addSeconds,
+  stopTimer,
+  timeLeft,
+  startTimer,
   onEnterEditClick,
   updateTodoDescription,
 }) => {
   const [editActive, setEditActive] = useState(false);
   const [editText, setEditText] = useState('');
 
-  const formatTime = () => {
-    const getSeconds = `0${seconds % 60}`.slice(-2);
-    const minutes = `${Math.floor(seconds / 60)}`;
-    const getMinutes = `0${minutes % 60}`.slice(-2);
-    const getHours = `0${Math.floor(seconds / 3600)}`.slice(-2);
-
-    return `${getHours}:${getMinutes}:${getSeconds}`;
-  };
-
-  useEffect(() => {
-    if (isActive) {
-      addSeconds(id);
-    }
-  }, []);
-
-  useEffect(() => {
-    let intervalId;
-    if (isActive) {
-      intervalId = setInterval(() => {
-        plusSecond(id);
-      }, 1000);
-    }
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [isActive]);
-
-  const handleStart = () => {
-    if (!isActive) {
-      changeActiveTask(id);
-    }
-  };
-
-  const handlePause = () => {
-    if (isActive) {
-      changeActiveTask(id);
-    }
-  };
-
   const onToggleClick = () => {
+    // console.log(id);
     changeCompleted(id);
   };
 
   const handleEdit = () => {
-    // setEditText(description);
+    setEditText(description);
     setEditActive(true);
   };
 
@@ -75,6 +35,11 @@ const Task = ({
     setEditActive(false);
   };
 
+  const formateTime = () => {
+    const mins = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    return `${mins.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
   return (
     <li>
       <div className="view">
@@ -100,9 +65,9 @@ const Task = ({
           )}
           <span className={`description ${completed ? 'completed' : ''}`}>{description}</span>
           <div className="timer_block">
-            <button className="icon-play" onClick={handleStart}></button>
-            <button className="icon-pause" onClick={handlePause}></button>
-            <span className="time">{formatTime()}</span>
+            <button onClick={() => startTimer(id)} className="icon-play"></button>
+            <button onClick={() => stopTimer(id)} className="icon-pause"></button>
+            <span className="time">{formateTime()}</span>
           </div>
           <span className="created">{formatDistance(new Date(created), new Date(), { addSuffix: true })}</span>
         </label>
