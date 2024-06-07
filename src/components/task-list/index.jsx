@@ -35,7 +35,6 @@ const TaskList = ({
         stopTimer={stopTimer}
         startTimer={startTimer}
         item={item}
-        // editItem={editItem}
         onEnterEditClick={onEnterEditClick}
         updateTodoDescription={updateTodoDescription}
       />

@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import Footer from '../footer';
 import NewTaskForm from '../new-task-form';
 import TaskList from '../task-list';
-// import TodoWithTimer from '../TodoWithTimer';
 
 import './app.css';
 
